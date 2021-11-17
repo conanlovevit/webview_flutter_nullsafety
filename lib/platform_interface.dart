@@ -31,8 +31,6 @@ abstract class WebViewPlatformCallbacksHandler {
 
   /// Report web resource loading error to the host application.
   void onWebResourceError(WebResourceError error);
-
-  void onScriptMessageReceived(Object message);
 }
 
 /// Possible error type categorizations used by [WebResourceError].
@@ -481,6 +479,9 @@ class CreationParams {
   }
 }
 
+/// Signature for callbacks reporting that a [WebViewPlatformController] was created.
+///
+/// See also the `onWebViewPlatformCreated` argument for [WebViewPlatform.build].
 typedef WebViewPlatformCreatedCallback = void Function(
     WebViewPlatformController webViewPlatformController);
 

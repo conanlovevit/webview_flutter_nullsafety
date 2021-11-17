@@ -50,12 +50,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "e2e",
-      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/e2e-0.2.4+4",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
-    },
-    {
       "name": "fake_async",
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0",
       "packageUri": "lib/",
@@ -111,9 +105,9 @@
     },
     {
       "name": "pedantic",
-      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.9.0",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.1",
       "packageUri": "lib/",
-      "languageVersion": "2.1"
+      "languageVersion": "2.12"
     },
     {
       "name": "platform",
@@ -201,18 +195,12 @@
     },
     {
       "name": "webview_flutter",
-      "rootUri": "../../",
-      "packageUri": "lib/",
-      "languageVersion": "2.7"
-    },
-    {
-      "name": "webview_flutter_example",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.0"
+      "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-11-17T07:29:04.077432Z",
+  "generated": "2021-11-17T07:29:03.230705Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }
