@@ -486,7 +486,8 @@ WebSettings _webSettingsFromWidget(WebView widget) {
   return WebSettings(
     javascriptMode: widget.javascriptMode,
     hasNavigationDelegate: widget.navigationDelegate != null,
-    hasProgressTracking: widget.onProgress != null,
+    // hasProgressTracking: widget.onProgress != null,
+    hasProgressTracking: false,
     debuggingEnabled: widget.debuggingEnabled,
     gestureNavigationEnabled: widget.gestureNavigationEnabled,
     allowsInlineMediaPlayback: widget.allowsInlineMediaPlayback,
