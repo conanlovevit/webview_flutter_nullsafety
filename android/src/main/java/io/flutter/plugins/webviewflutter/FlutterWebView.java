@@ -3,23 +3,21 @@
 // found in the LICENSE file.
 
 package io.flutter.plugins.webviewflutter;
-import android.app.AlertDialog;
 
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.hardware.display.DisplayManager;
 import android.os.Build;
 import android.os.Handler;
-import android.os.Message;
 import android.os.Looper;
 import android.util.Log;
+import android.os.Message;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.webkit.JsResult;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.NonNull;
 import io.flutter.plugin.common.BinaryMessenger;
@@ -121,9 +119,6 @@ public class FlutterWebView implements PlatformView, MethodCallHandler {
     flutterWebViewClient = new FlutterWebViewClient(methodChannel);
     Map<String, Object> settings = (Map<String, Object>) params.get("settings");
     if (settings != null) applySettings(settings);
-	
-	webView.addJavascriptInterface(new JavaScriptInterface(context, methodChannel), "Android");
-    Log.i("TAG", "addJavascriptInterface");
 
     if (params.containsKey(JS_CHANNEL_NAMES_FIELD)) {
       List<String> names = (List<String>) params.get(JS_CHANNEL_NAMES_FIELD);
@@ -201,7 +196,7 @@ public class FlutterWebView implements PlatformView, MethodCallHandler {
       case "loadUrl":
         loadUrl(methodCall, result);
         break;
-	  case "loadHtmlString":
+      case "loadHtmlString":
         loadHtmlString(methodCall, result);
         break;
       case "updateSettings":
@@ -269,7 +264,7 @@ public class FlutterWebView implements PlatformView, MethodCallHandler {
     result.success(null);
   }
 
-  @SuppressWarnings("unchecked")
+   @SuppressWarnings("unchecked")
   private void loadHtmlString(MethodCall methodCall, Result result) {
     Map<String, Object> request = (Map<String, Object>) methodCall.arguments;
     String htmlString = (String) request.get("htmlString");
@@ -464,7 +459,7 @@ public class FlutterWebView implements PlatformView, MethodCallHandler {
     }
     webView.destroy();
   }
-  
+
   public class JavaScriptInterface {
     private Context context;
     final MethodChannel myMethodChannel;
