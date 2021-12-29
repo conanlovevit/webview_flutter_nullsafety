@@ -120,6 +120,9 @@ public class FlutterWebView implements PlatformView, MethodCallHandler {
     Map<String, Object> settings = (Map<String, Object>) params.get("settings");
     if (settings != null) applySettings(settings);
 
+    webView.addJavascriptInterface(new JavaScriptInterface(context, methodChannel), "Android");
+    Log.i("TAG", "addJavascriptInterface");
+
     if (params.containsKey(JS_CHANNEL_NAMES_FIELD)) {
       List<String> names = (List<String>) params.get(JS_CHANNEL_NAMES_FIELD);
       if (names != null) registerJavaScriptChannelNames(names);
