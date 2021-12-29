@@ -145,6 +145,9 @@ typedef void PageStartedCallback(String url);
 /// Signature for when a [WebView] has finished loading a page.
 typedef void PageFinishedCallback(String url);
 
+/// Invoked when a script message is received from a webpage.
+typedef void ScriptMessageReceived(String message);
+
 /// Signature for when a [WebView] is loading a page.
 typedef void PageLoadingCallback(int progress);
 
@@ -231,6 +234,7 @@ class WebView extends StatefulWidget {
     this.initialMediaPlaybackPolicy =
         AutoMediaPlaybackPolicy.require_user_action_for_all_media_types,
     this.allowsInlineMediaPlayback = false,
+    this.onScriptMessageReceived,
   })  : assert(javascriptMode != null),
         assert(initialMediaPlaybackPolicy != null),
         assert(allowsInlineMediaPlayback != null),
@@ -271,6 +275,8 @@ class WebView extends StatefulWidget {
 
   /// If not null invoked once the web view is created.
   final WebViewCreatedCallback? onWebViewCreated;
+
+  final ScriptMessageReceived? onScriptMessageReceived;
 
   /// Which gestures should be consumed by the web view.
   ///
@@ -608,6 +614,13 @@ class _PlatformCallbacksHandler implements WebViewPlatformCallbacksHandler {
     }
     for (JavascriptChannel channel in channels) {
       _javascriptChannels[channel.name] = channel;
+    }
+  }
+
+  @override
+  void onScriptMessageReceived(String message) {
+    if (_widget.onScriptMessageReceived != null) {
+      _widget.onScriptMessageReceived!(message);
     }
   }
 }
